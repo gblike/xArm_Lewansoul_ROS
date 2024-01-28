@@ -43,7 +43,7 @@ class XArm():
         print(en)
 
         # return a list of devices based on the search parameters
-        devices = en.find(product="LOBOT")#vid=1155, )
+        devices = en.find(product="LOBOT") + en.find(product="Hiwonder")
 
         # print a description of the devices found
         for dev in devices:
