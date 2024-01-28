@@ -40,7 +40,7 @@ class XArm():
 
         # Stores an enumeration of all the connected USB HID devices
         en = easyhid.Enumeration()
-        print (en)
+        print(en)
 
         # return a list of devices based on the search parameters
         devices = en.find(product="LOBOT")#vid=1155, )
@@ -168,11 +168,11 @@ class SafeXArm:
         pos = (pos + 1) / 2
         target = self.min_pos + pos * (self.max_pos - self.min_pos)
 
-        print type(np)
-        print "Before flip:", target
+        print(type(np))
+        print("Before flip:", target)
 
         target = flip(target, 0).astype(np.uint16)
-        print "After flip:",target
+        print("After flip:",target)
 
         # TODO: compute time needed based on last position
         # Compute time needed to move each joint to target given max_speed
@@ -186,7 +186,7 @@ class SafeXArm:
 
 def demo():
     arm = XArm()
-    print arm.read_pos()
+    print(arm.read_pos())
 
     # Close gripper
     arm.move_to(id=1, pos=685, time=1000)
@@ -224,4 +224,5 @@ def demo():
     arm.move_to(id=2, pos=590, time=1000)
     time.sleep(2)
 
-demo()
+if __name__ == "__main__":
+    demo()
