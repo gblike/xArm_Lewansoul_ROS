@@ -8,4 +8,4 @@ controller_list:
       - xarm_2_joint
   - name: fake_arm_end_effector_controller
     joints:
-      - xarm_2_joint
+      - xarm_gripper_tip_joint

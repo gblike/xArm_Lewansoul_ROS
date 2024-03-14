@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="xarm">
+<robot name="xarm" xmlns:xacro="http://ros.org/wiki/xacro">
     <material name="DarkGrey">
         <color rgba="0.3 0.3 0.3 1.0" />
     </material>
@@ -153,14 +153,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://xarm_description/meshes/stls/gripper.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://xarm_description/meshes/stls/ID1_servo.stl" scale=".001 .001 .001" />
             </geometry>
             <material name="DarkGrey" />
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://xarm_description/meshes/stls/gripper.stl" scale="1.0 1.0 1.0" />
+                <mesh filename="package://xarm_description/meshes/stls/ID1_servo.stl" scale=".001 .001 .001" />
             </geometry>
         </collision>
         <inertial>
@@ -169,7 +169,7 @@
         </inertial>
     </link>
 
-    <link name="xarm_gripper_tip" />
+    <!--link name="xarm_gripper_tip" /-->
     <!--link name="xarm_gripper_tip">
         <visual>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
@@ -189,6 +189,9 @@
             <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
         </inertial>
     </link-->
+
+    <!-- gripper -->
+    <xacro:include filename="$(find xarm_description)/urdf/xarm_gripper.xacro"/>
 
     <joint name="xarm_6_joint" type="revolute">
         <origin rpy="0 0 0" xyz="0 0.0 0.03603" />
@@ -248,11 +251,12 @@
         <child link="xarm_1_link" />
     </joint>
 
-    <joint name="xarm_gripper_tip_joint" type="fixed">
+    <!--joint name="xarm_gripper_tip_joint" type="prismatic">
       <parent link="xarm_2_link" />
       <child link = "xarm_gripper_tip" />
+      <limit effort="30" velocity="0.5" lower="0.002" upper="0.042"/>
       <origin xyz="0.0 0.0 0.104639" rpy="0.0 0.0 0.0" />
-    </joint>
+    </joint-->
     
     <transmission name="trans_xarm_6_joint">
         <type>transmission_interface/SimpleTransmission</type>
