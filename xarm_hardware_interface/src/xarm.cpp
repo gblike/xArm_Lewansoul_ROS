@@ -26,9 +26,9 @@ namespace xarm
 			std::wstring ws(cur_dev->product_string);
 			string product(ws.begin(), ws.end());
 		
-			if (product=="LOBOT")
+			if (product=="LOBOT" || product=="Hiwonder")
 			{
-				ROS_INFO("LOBOT found \n");
+				ROS_INFO("xArm found \n");
 				found=1;
 				break;
 			}
@@ -36,7 +36,7 @@ namespace xarm
 		}
 		if (found==0)
 		{
-			ROS_ERROR("LOBOT not found, make sure it is power on \n");
+			ROS_ERROR("xArm not found, make sure it is power on \n");
 			throw std::exception();
 		}
 
