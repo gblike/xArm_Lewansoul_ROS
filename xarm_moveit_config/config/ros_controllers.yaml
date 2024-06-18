@@ -39,5 +39,3 @@ controller_list:
     parallel: false
     joints:
       - xarm_1_joint
-      - xarm_gripper_tip_joint
-    
