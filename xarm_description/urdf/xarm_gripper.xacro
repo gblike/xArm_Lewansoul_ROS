@@ -48,7 +48,7 @@
   <joint name="xarm_tip1_joint" type="prismatic">
     <origin xyz="0 0 0.070" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>
-    <limit effort="30" velocity="0.5" />
+    <limit effort="30" velocity="0.5" lower="0" upper="1" />
     <parent link="xarm_1_link"/>
     <child link="xarm_gripper_tip1"/>
     <mimic joint="xarm_1_joint" multiplier="0.028"  offset = "0"/>    
@@ -63,7 +63,7 @@
   <joint name="xarm_tip2_joint" type="prismatic">
     <origin xyz="0 0 0.070" rpy="0 0 0"/>
     <axis xyz="1 0 0"/>    
-    <limit effort="30" velocity="0.5" />    
+    <limit effort="30" velocity="0.5" lower="-1" upper="0" />    
     <parent link="xarm_1_link"/>
     <child link="xarm_gripper_tip2"/>
     <mimic joint="xarm_1_joint" multiplier="-0.028"  offset = "0"/>    
