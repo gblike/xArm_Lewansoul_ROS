@@ -6,7 +6,8 @@ controller_list:
       - xarm_4_joint
       - xarm_3_joint
       - xarm_2_joint
-      - xarm_1_joint      
   - name: fake_arm_end_effector_controller
     joints:
-      - xarm_gripper_tip_joint
+      - xarm_1_joint      
+      - xarm_tip1_joint      
+      - xarm_tip2_joint      
