@@ -15,53 +15,29 @@
         <joint name="xarm_4_joint"/>
         <joint name="xarm_3_joint"/>
         <joint name="xarm_2_joint"/>
-        <chain base_link="xarm_base_link" tip_link="xarm_1_link"/>
     </group>
     <group name="gripper">
         <joint name="xarm_1_joint"/>
-        <joint name="xarm_tip1_joint"/>
-        <joint name="xarm_tip2_joint"/>
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
-    <group_state name="Ready" group="xarm">
-        <joint name="xarm_2_joint" value="0"/>
-        <joint name="xarm_3_joint" value="1.1643"/>
-        <joint name="xarm_4_joint" value="1.2186"/>
-        <joint name="xarm_5_joint" value="-0.7921"/>
-        <joint name="xarm_6_joint" value="0"/>
-    </group_state>
-    <group_state name="Open" group="gripper">
-        <joint name="xarm_1_joint" value="0.98"/>
-    </group_state>
-    <group_state name="HalfClosed" group="gripper">
-        <joint name="xarm_1_joint" value="0.50"/>
-    </group_state>
-    <group_state name="Closed" group="gripper">
-        <joint name="xarm_1_joint" value="0.0"/>
-    </group_state>
-    <group_state name="Retracted" group="xarm">
-        <joint name="xarm_2_joint" value="0"/>
-        <joint name="xarm_3_joint" value="-1.5314"/>
-        <joint name="xarm_4_joint" value="-1.9104"/>
-        <joint name="xarm_5_joint" value="1.1993"/>
-        <joint name="xarm_6_joint" value="0"/>
-    </group_state>
-    <group_state name="Rotate45" group="xarm">
-        <joint name="xarm_2_joint" value="1.0244"/>
-        <joint name="xarm_3_joint" value="0.5914"/>
-        <joint name="xarm_4_joint" value="1.1441"/>
-        <joint name="xarm_5_joint" value="-0.7439"/>
-        <joint name="xarm_6_joint" value="0"/>
-    </group_state>
     <group_state name="Up" group="xarm">
         <joint name="xarm_2_joint" value="0"/>
-        <joint name="xarm_3_joint" value="0.0549"/>
-        <joint name="xarm_4_joint" value="-0.0831"/>
-        <joint name="xarm_5_joint" value="0.0627"/>
+        <joint name="xarm_3_joint" value="0"/>
+        <joint name="xarm_4_joint" value="0"/>
+        <joint name="xarm_5_joint" value="0"/>
         <joint name="xarm_6_joint" value="0"/>
     </group_state>
+    <group_state name="Crescent" group="xarm">
+        <joint name="xarm_2_joint" value="-0.9692"/>
+        <joint name="xarm_3_joint" value="1.2627"/>
+        <joint name="xarm_4_joint" value="0.3916"/>
+        <joint name="xarm_5_joint" value="-0.7109"/>
+        <joint name="xarm_6_joint" value="0.4618"/>
+    </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="gripper" parent_link="xarm_2_link" group="gripper" parent_group="xarm"/>
+    <end_effector name="gripper" parent_link="xarm_2_link" group="gripper"/>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="xarm_base_link"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="xarm_1_link" link2="xarm_2_link" reason="Adjacent"/>
     <disable_collisions link1="xarm_1_link" link2="xarm_3_link" reason="Never"/>
@@ -84,5 +60,5 @@
     <disable_collisions link1="xarm_4_link" link2="xarm_gripper_tip2" reason="Never"/>
     <disable_collisions link1="xarm_5_link" link2="xarm_6_link" reason="Adjacent"/>
     <disable_collisions link1="xarm_6_link" link2="xarm_base_link" reason="Adjacent"/>
-    <disable_collisions link1="xarm_gripper_tip1" link2="xarm_gripper_tip2" reason="Never"/>
+    <disable_collisions link1="xarm_gripper_tip1" link2="xarm_gripper_tip2" reason="Default"/>
 </robot>

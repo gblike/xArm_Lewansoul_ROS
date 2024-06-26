@@ -6,6 +6,6 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/xarm.srdf
   CONFIG:
-    author_name: "Carolina Leon "
-    author_email: carolinallp@gmail.com
-    generated_timestamp: 1718146363
+    author_name: Greg Blike
+    author_email: greg.blike@inkanitolabs.com
+    generated_timestamp: 1719420510

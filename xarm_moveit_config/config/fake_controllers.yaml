@@ -1,5 +1,6 @@
 controller_list:
   - name: fake_xarm_controller
+    type: $(arg fake_execution_type)
     joints:
       - xarm_6_joint
       - xarm_5_joint
@@ -7,7 +8,9 @@ controller_list:
       - xarm_3_joint
       - xarm_2_joint
   - name: fake_gripper_controller
+    type: $(arg fake_execution_type)
     joints:
-      - xarm_1_joint      
-      - xarm_tip1_joint      
-      - xarm_tip2_joint      
+      - xarm_1_joint
+initial:  # Define initial robot poses per group
+  - group: xarm
+    pose: Up

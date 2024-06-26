@@ -1,0 +1,11 @@
+controller_list:
+  - name: xarm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - xarm_6_joint
+      - xarm_5_joint
+      - xarm_4_joint
+      - xarm_3_joint
+      - xarm_2_joint
