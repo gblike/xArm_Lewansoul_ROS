@@ -1,6 +1,6 @@
 controller_list:
-  - name: xarm_controller
-    action_ns: follow_joint_trajectory
+  - name: xarm
+    action_ns: controller/trajectory/follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
     joints:
