@@ -9,3 +9,9 @@ controller_list:
       - xarm_4_joint
       - xarm_3_joint
       - xarm_2_joint
+  - name: xarm
+    action_ns: controller/gripper/gripper_cmd
+    type: GripperCommand
+    default: True
+    joints:
+      - xarm_1_joint
